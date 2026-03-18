@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+/* ============================================
+   INSTITUT LA CLÉ — Design System CSS
+   ============================================ */
+
+:root {
+  /* Colors */
+  --color-ivory: #F7F5F0;
+  --color-ivory-warm: #EDE9E0;
+  --color-white: #FEFDFB;
+  --color-noir: #1A1A1A;
+  --color-graphite: #4A4A4A;
+  --color-graphite-light: #7A7A7A;
+  --color-bronze: #9B8A6E;
+  --color-bronze-hover: #887758;
+  --color-bronze-subtle: rgba(155, 138, 110, 0.08);
+  --color-border: #E0DCD4;
+  --color-border-light: #EDEBE6;
+
+  /* Typography sizes */
+  --text-h1: 3.5rem;
+  --text-h2: 2.625rem;
+  --text-h3: 2rem;
+  --text-h4: 1.5rem;
+  --text-h5: 1.25rem;
+  --text-h6: 1.125rem;
+  --text-body: 1.125rem;
+  --text-body-sm: 1rem;
+  --text-caption: 0.875rem;
+  --text-overline: 0.75rem;
+
+  /* Line heights */
+  --leading-h1: 1.15;
+  --leading-h2: 1.2;
+  --leading-h3: 1.25;
+  --leading-h4: 1.3;
+  --leading-body: 1.7;
+  --leading-body-sm: 1.6;
+  --leading-caption: 1.5;
+
+  /* Spacing */
+  --space-section: 7.5rem;
+
+  /* Layout */
+  --max-width: 1200px;
+
+  /* Transitions */
+  --ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 300ms;
+  --duration-medium: 400ms;
+  --duration-slow: 600ms;
+  --duration-reveal: 800ms;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --text-h1: 2.25rem;
+    --text-h2: 1.75rem;
+    --text-h3: 1.5rem;
+    --text-h4: 1.25rem;
+    --text-h5: 1.125rem;
+    --text-h6: 1rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.875rem;
+    --text-caption: 0.75rem;
+    --space-section: 5rem;
+  }
+}
+
+/* Tailwind v4 theme integration */
+@theme inline {
+  /* Colors */
+  --color-ivory: #F7F5F0;
+  --color-ivory-warm: #EDE9E0;
+  --color-white: #FEFDFB;
+  --color-noir: #1A1A1A;
+  --color-graphite: #4A4A4A;
+  --color-graphite-light: #7A7A7A;
+  --color-bronze: #9B8A6E;
+  --color-bronze-hover: #887758;
+  --color-border: #E0DCD4;
+  --color-border-light: #EDEBE6;
+
+  /* Fonts */
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-hanken);
+
+  /* Custom spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+  --spacing-40: 10rem;
+}
+
+/* Base styles */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-noir);
+  background-color: var(--color-ivory);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-bronze-subtle);
+  color: var(--color-noir);
+}
+
+/* Smooth scroll */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ============================================
+   COMPONENT PATTERNS
+   ============================================ */
+
+/* Card with bronze left accent */
+.card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: rgba(155, 138, 110, 0.3);
+  transition: background-color 500ms var(--ease-default);
+}
+
+.card-accent:hover::before {
+  background-color: var(--color-bronze);
+}
+
+/* FAQ accordion */
+details > summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details > summary::after {
+  content: '+';
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-bronze);
+  transition: opacity 200ms;
+}
+
+details[open] > summary::after {
+  content: '\2212';
+}
+
+/* Editorial pull quote */
+blockquote.pull-quote {
+  margin: 3rem 0;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(155, 138, 110, 0.3);
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-noir);
+}
+
+/* Serif italic accent within body text */
+em.accent {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+}

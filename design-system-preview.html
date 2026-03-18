@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System — Institut La Clé</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           DESIGN SYSTEM — INSTITUT LA CLÉ
+           Version 1.0 — Document de référence
+           ============================================ */
+
+        :root {
+            /* Colors */
+            --color-ivory: #F7F5F0;
+            --color-ivory-warm: #EDE9E0;
+            --color-white: #FEFDFB;
+            --color-noir: #1A1A1A;
+            --color-graphite: #4A4A4A;
+            --color-graphite-light: #7A7A7A;
+            --color-bronze: #9B8A6E;
+            --color-bronze-hover: #887758;
+            --color-bronze-subtle: rgba(155, 138, 110, 0.08);
+            --color-border: #E0DCD4;
+            --color-border-light: #EDEBE6;
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+            /* Font sizes */
+            --text-h1: 3.5rem;
+            --text-h2: 2.625rem;
+            --text-h3: 2rem;
+            --text-h4: 1.5rem;
+            --text-h5: 1.25rem;
+            --text-h6: 1.125rem;
+            --text-body: 1.125rem;
+            --text-body-sm: 1rem;
+            --text-caption: 0.875rem;
+            --text-overline: 0.75rem;
+
+            /* Line heights */
+            --leading-h1: 1.15;
+            --leading-h2: 1.2;
+            --leading-h3: 1.25;
+            --leading-h4: 1.3;
+            --leading-h5: 1.35;
+            --leading-h6: 1.4;
+            --leading-body: 1.7;
+            --leading-body-sm: 1.6;
+            --leading-caption: 1.5;
+
+            /* Font weights */
+            --weight-light: 300;
+            --weight-regular: 400;
+            --weight-medium: 500;
+            --weight-semibold: 600;
+
+            /* Spacing (base 8px) */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.5rem;
+            --space-6: 2rem;
+            --space-7: 3rem;
+            --space-8: 4rem;
+            --space-9: 5rem;
+            --space-10: 6rem;
+            --space-11: 7.5rem;
+            --space-12: 10rem;
+            --space-section: 7.5rem;
+
+            /* Layout */
+            --max-width: 1200px;
+            --gutter: 2rem;
+            --margin-mobile: 1.5rem;
+            --margin-tablet: 3rem;
+            --margin-desktop: 5rem;
+
+            /* Borders */
+            --radius-sm: 2px;
+
+            /* Transitions */
+            --ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --duration-fast: 300ms;
+            --duration-medium: 400ms;
+            --duration-slow: 600ms;
+            --duration-reveal: 800ms;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --text-h1: 2.25rem;
+                --text-h2: 1.75rem;
+                --text-h3: 1.5rem;
+                --text-h4: 1.25rem;
+                --text-h5: 1.125rem;
+                --text-h6: 1rem;
+                --text-body: 1rem;
+                --text-body-sm: 0.875rem;
+                --text-caption: 0.75rem;
+                --space-section: 5rem;
+                --gutter: 1.5rem;
+            }
+        }
+
+        /* --- Reset --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-body);
+            line-height: var(--leading-body);
+            color: var(--color-noir);
+            background-color: var(--color-ivory);
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--margin-desktop);
+        }
+        @media (max-width: 1024px) { .container { padding: 0 var(--margin-tablet); } }
+        @media (max-width: 768px) { .container { padding: 0 var(--margin-mobile); } }
+
+        /* --- Header --- */
+        .header {
+            padding: var(--space-12) 0 var(--space-11);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .header h1 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h1);
+            font-weight: var(--weight-light);
+            line-height: var(--leading-h1);
+            margin-bottom: var(--space-5);
+        }
+        .header p {
+            color: var(--color-graphite);
+            max-width: 600px;
+        }
+        .header-meta {
+            margin-top: var(--space-6);
+            display: flex;
+            gap: var(--space-7);
+            flex-wrap: wrap;
+        }
+        .header-meta span {
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+        }
+
+        /* --- Section --- */
+        .section {
+            padding: var(--space-section) 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        .section:last-of-type { border-bottom: none; }
+        .section-label {
+            font-family: var(--font-body);
+            font-size: var(--text-overline);
+            font-weight: var(--weight-medium);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-graphite-light);
+            margin-bottom: var(--space-8);
+        }
+        .section-intro {
+            font-size: var(--text-body-sm);
+            color: var(--color-graphite);
+            margin-bottom: var(--space-7);
+            max-width: 600px;
+        }
+
+        /* --- 01: Colors --- */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--space-5);
+        }
+        .color-card { border: 1px solid var(--color-border); }
+        .color-swatch { height: 100px; width: 100%; }
+        .color-info { padding: var(--space-4); background: var(--color-white); }
+        .color-name { font-size: var(--text-body-sm); font-weight: var(--weight-medium); margin-bottom: var(--space-1); }
+        .color-hex { font-size: var(--text-caption); color: var(--color-graphite-light); font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+        .color-token { font-size: 0.6875rem; color: var(--color-graphite-light); font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; margin-top: 2px; }
+
+        /* --- 02: Typography --- */
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            padding: var(--space-6) 0;
+            border-bottom: 1px solid var(--color-border-light);
+            gap: var(--space-7);
+        }
+        .type-row:last-child { border-bottom: none; }
+        .type-label {
+            flex-shrink: 0;
+            width: 100px;
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        }
+        .type-sample { flex: 1; }
+        .type-meta {
+            flex-shrink: 0;
+            width: 220px;
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            text-align: right;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .type-row { flex-direction: column; gap: var(--space-2); }
+            .type-label, .type-meta { width: auto; text-align: left; }
+        }
+
+        /* --- 03: Spacing --- */
+        .spacing-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-5);
+            margin-bottom: var(--space-3);
+        }
+        .spacing-label {
+            flex-shrink: 0;
+            width: 80px;
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        }
+        .spacing-bar {
+            height: 6px;
+            background: var(--color-bronze);
+            opacity: 0.5;
+            border-radius: var(--radius-sm);
+        }
+        .spacing-value {
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        }
+
+        /* --- 04: Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            border: 1px solid var(--color-noir);
+            background: transparent;
+            color: var(--color-noir);
+            padding: 1rem 2.5rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--duration-medium) var(--ease-default);
+        }
+        .btn:hover {
+            background: var(--color-noir);
+            color: var(--color-ivory);
+        }
+        .btn--bronze {
+            border-color: var(--color-bronze);
+            color: var(--color-bronze);
+        }
+        .btn--bronze:hover {
+            background: var(--color-bronze);
+            color: var(--color-ivory);
+        }
+        .buttons-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-5);
+            align-items: center;
+        }
+
+        /* --- 05: Cards --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        .card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border-light);
+            padding: var(--space-7);
+            transition: border-color var(--duration-medium) var(--ease-default);
+            cursor: pointer;
+        }
+        .card:hover { border-color: var(--color-bronze); }
+        .card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h4);
+            font-weight: var(--weight-regular);
+            line-height: var(--leading-h4);
+            margin-bottom: var(--space-4);
+        }
+        .card p {
+            font-size: var(--text-body-sm);
+            color: var(--color-graphite);
+            line-height: var(--leading-body-sm);
+        }
+
+        /* --- 06: Section Block --- */
+        .section-block {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            padding: var(--space-9) var(--space-8);
+        }
+        @media (max-width: 768px) {
+            .section-block { padding: var(--space-7) var(--space-5); }
+        }
+        .section-block h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h2);
+            font-weight: var(--weight-light);
+            line-height: var(--leading-h2);
+            margin-bottom: var(--space-6);
+        }
+        .section-block p {
+            max-width: 680px;
+            color: var(--color-graphite);
+            margin-bottom: var(--space-5);
+        }
+        .video-container {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: var(--color-ivory-warm);
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 680px;
+            margin-top: var(--space-7);
+        }
+        .video-placeholder {
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            letter-spacing: 0.03em;
+        }
+
+        /* --- 07: Splash --- */
+        .splash-preview {
+            background: var(--color-noir);
+            padding: var(--space-9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+            cursor: pointer;
+            position: relative;
+        }
+        .splash-preview svg {
+            width: 72px;
+            height: 72px;
+            margin-bottom: var(--space-6);
+        }
+        .splash-preview svg path {
+            stroke: var(--color-ivory);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .splash-preview.playing svg path {
+            animation: strokeDraw 1.2s var(--ease-default) forwards;
+        }
+        .splash-baseline {
+            font-family: var(--font-heading);
+            font-size: var(--text-h5);
+            font-weight: var(--weight-light);
+            color: var(--color-ivory);
+            letter-spacing: 0.05em;
+            opacity: 0;
+        }
+        .splash-preview.playing .splash-baseline {
+            animation: fadeIn 0.6s var(--ease-default) 1s forwards;
+        }
+        .splash-hint {
+            position: absolute;
+            bottom: var(--space-5);
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+        }
+
+        @keyframes strokeDraw {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 08: Spec rows --- */
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4) 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label { font-size: var(--text-body-sm); }
+        .spec-value {
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+        }
+        .spec-grid { max-width: 600px; }
+
+        /* --- 10: Composition --- */
+        .composition-home {
+            background: var(--color-ivory);
+            border: 1px solid var(--color-border);
+            padding: var(--space-12) var(--space-8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 500px;
+            justify-content: center;
+        }
+        .composition-home h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-h1);
+            font-weight: var(--weight-light);
+            line-height: var(--leading-h1);
+            margin-bottom: var(--space-3);
+        }
+        .composition-home .subtitle {
+            font-family: var(--font-body);
+            font-size: var(--text-body-sm);
+            color: var(--color-graphite);
+            letter-spacing: 0.02em;
+            margin-bottom: var(--space-9);
+        }
+        .composition-home .home-actions {
+            display: flex;
+            gap: var(--space-5);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* --- Reveal animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--duration-reveal) var(--ease-default),
+                        transform var(--duration-reveal) var(--ease-default);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: var(--space-9) 0;
+            border-top: 1px solid var(--color-border);
+            margin-top: var(--space-11);
+        }
+        .footer p {
+            font-size: var(--text-caption);
+            color: var(--color-graphite-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ==================== HEADER ==================== -->
+        <header class="header">
+            <h1>Design System</h1>
+            <p>Institut La Clé &mdash; Systeme de design fondateur.<br>Referenciel pour l'ensemble du site institutionnel.</p>
+            <div class="header-meta">
+                <span>Version 1.0</span>
+                <span>Cormorant Garamond + Hanken Grotesk</span>
+                <span>Mobile-first</span>
+            </div>
+        </header>
+
+        <!-- ==================== 01: PALETTE ==================== -->
+        <section class="section reveal">
+            <div class="section-label">01 &mdash; Palette</div>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #FEFDFB; border-bottom: 1px solid #EDEBE6;"></div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-hex">#FEFDFB</div>
+                        <div class="color-token">--color-white</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F7F5F0;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Ivory</div>
+                        <div class="color-hex">#F7F5F0</div>
+                        <div class="color-token">--color-ivory</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #EDE9E0;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Ivory Warm</div>
+                        <div class="color-hex">#EDE9E0</div>
+                        <div class="color-token">--color-ivory-warm</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #E0DCD4;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Border</div>
+                        <div class="color-hex">#E0DCD4</div>
+                        <div class="color-token">--color-border</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #EDEBE6;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Border Light</div>
+                        <div class="color-hex">#EDEBE6</div>
+                        <div class="color-token">--color-border-light</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #9B8A6E;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Bronze</div>
+                        <div class="color-hex">#9B8A6E</div>
+                        <div class="color-token">--color-bronze</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #887758;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Bronze Hover</div>
+                        <div class="color-hex">#887758</div>
+                        <div class="color-token">--color-bronze-hover</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #7A7A7A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Graphite Light</div>
+                        <div class="color-hex">#7A7A7A</div>
+                        <div class="color-token">--color-graphite-light</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #4A4A4A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Graphite</div>
+                        <div class="color-hex">#4A4A4A</div>
+                        <div class="color-token">--color-graphite</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1A1A1A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Noir</div>
+                        <div class="color-hex">#1A1A1A</div>
+                        <div class="color-token">--color-noir</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 02: TYPOGRAPHY ==================== -->
+        <section class="section reveal">
+            <div class="section-label">02 &mdash; Typographie</div>
+
+            <div class="type-row">
+                <div class="type-label">H1</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h1); font-weight: var(--weight-light); line-height: var(--leading-h1);">
+                    Comprendre avant d'agir
+                </div>
+                <div class="type-meta">Cormorant Garamond Light<br>56px &middot; 1.15</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">H2</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: var(--weight-regular); line-height: var(--leading-h2);">
+                    L'excellence n'est pas un slogan
+                </div>
+                <div class="type-meta">Cormorant Garamond Regular<br>42px &middot; 1.2</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">H3</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h3); font-weight: var(--weight-regular); line-height: var(--leading-h3);">
+                    Aller au c&oelig;ur des mecanismes
+                </div>
+                <div class="type-meta">Cormorant Garamond Regular<br>32px &middot; 1.25</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">H4</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h4); font-weight: var(--weight-medium); line-height: var(--leading-h4);">
+                    L'humain comme horizon
+                </div>
+                <div class="type-meta">Cormorant Garamond Medium<br>24px &middot; 1.3</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">H5</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h5); font-weight: var(--weight-medium); line-height: var(--leading-h5);">
+                    Parcours distanciel structure
+                </div>
+                <div class="type-meta">Cormorant Garamond Medium<br>20px &middot; 1.35</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">H6</div>
+                <div class="type-sample" style="font-family: var(--font-heading); font-size: var(--text-h6); font-weight: var(--weight-semibold); line-height: var(--leading-h6);">
+                    Certification et reconnaissance
+                </div>
+                <div class="type-meta">Cormorant Garamond SemiBold<br>18px &middot; 1.4</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">Body</div>
+                <div class="type-sample" style="font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-regular); line-height: var(--leading-body); max-width: 680px;">
+                    La comprehension des mecanismes humains exige un cadre rigoureux, une pedagogie structuree et un engagement reel envers la profondeur. L'institut La Cle propose un parcours concu pour ceux qui choisissent de comprendre avant d'agir.
+                </div>
+                <div class="type-meta">Hanken Grotesk Regular<br>18px &middot; 1.7</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">Body sm</div>
+                <div class="type-sample" style="font-family: var(--font-body); font-size: var(--text-body-sm); font-weight: var(--weight-regular); line-height: var(--leading-body-sm); max-width: 680px; color: var(--color-graphite);">
+                    Chaque module a ete pense pour construire une comprehension progressive, solide et applicable. Le parcours suit une logique de maitrise, pas de consommation.
+                </div>
+                <div class="type-meta">Hanken Grotesk Regular<br>16px &middot; 1.6</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">Caption</div>
+                <div class="type-sample" style="font-family: var(--font-body); font-size: var(--text-caption); font-weight: var(--weight-regular); line-height: var(--leading-caption); color: var(--color-graphite-light);">
+                    Institut La Cle &mdash; Tous droits reserves &mdash; Mentions legales
+                </div>
+                <div class="type-meta">Hanken Grotesk Regular<br>14px &middot; 1.5</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-label">Overline</div>
+                <div class="type-sample" style="font-family: var(--font-body); font-size: var(--text-overline); font-weight: var(--weight-medium); line-height: 1.4; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-graphite-light);">
+                    Formation disponible
+                </div>
+                <div class="type-meta">Hanken Grotesk Medium<br>12px &middot; 0.1em tracking</div>
+            </div>
+        </section>
+
+        <!-- ==================== 03: SPACING ==================== -->
+        <section class="section reveal">
+            <div class="section-label">03 &mdash; Espacements</div>
+            <p class="section-intro">
+                Systeme base sur un increment de 8px. Les espacements entre sections sont volontairement genereux pour creer une respiration institutionnelle.
+            </p>
+
+            <div class="spacing-row"><div class="spacing-label">space-1</div><div class="spacing-bar" style="width: 4px;"></div><div class="spacing-value">4px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-2</div><div class="spacing-bar" style="width: 8px;"></div><div class="spacing-value">8px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-3</div><div class="spacing-bar" style="width: 12px;"></div><div class="spacing-value">12px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-4</div><div class="spacing-bar" style="width: 16px;"></div><div class="spacing-value">16px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-5</div><div class="spacing-bar" style="width: 24px;"></div><div class="spacing-value">24px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-6</div><div class="spacing-bar" style="width: 32px;"></div><div class="spacing-value">32px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-7</div><div class="spacing-bar" style="width: 48px;"></div><div class="spacing-value">48px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-8</div><div class="spacing-bar" style="width: 64px;"></div><div class="spacing-value">64px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-9</div><div class="spacing-bar" style="width: 80px;"></div><div class="spacing-value">80px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-10</div><div class="spacing-bar" style="width: 96px;"></div><div class="spacing-value">96px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-11</div><div class="spacing-bar" style="width: 120px;"></div><div class="spacing-value">120px</div></div>
+            <div class="spacing-row"><div class="spacing-label">space-12</div><div class="spacing-bar" style="width: 160px;"></div><div class="spacing-value">160px</div></div>
+            <div class="spacing-row" style="margin-top: var(--space-5);">
+                <div class="spacing-label" style="color: var(--color-bronze); font-weight: 600;">section</div>
+                <div class="spacing-bar" style="width: 120px; background: var(--color-bronze); opacity: 0.8;"></div>
+                <div class="spacing-value" style="color: var(--color-bronze);">120px / 80px mobile</div>
+            </div>
+        </section>
+
+        <!-- ==================== 04: BUTTONS ==================== -->
+        <section class="section reveal">
+            <div class="section-label">04 &mdash; Boutons</div>
+            <p class="section-intro">
+                Style unique. Le bouton est une invitation sobre, jamais une injonction. Pas de variantes marketing. Le hover inverse fond et texte.
+            </p>
+
+            <div class="buttons-row" style="margin-bottom: var(--space-7);">
+                <button class="btn">Nous decouvrir</button>
+                <button class="btn">Catalogue des formations</button>
+                <button class="btn">Espace apprenant</button>
+            </div>
+
+            <p style="font-size: var(--text-caption); color: var(--color-graphite-light); margin-bottom: var(--space-5);">Variante bronze &mdash; accent symbolique, usage ponctuel</p>
+            <div class="buttons-row">
+                <button class="btn btn--bronze">Acceder a l'espace de formation</button>
+            </div>
+        </section>
+
+        <!-- ==================== 05: CARDS ==================== -->
+        <section class="section reveal">
+            <div class="section-label">05 &mdash; Cartes</div>
+            <p class="section-intro">
+                Hub "Nous decouvrir" et Catalogue. Fond blanc sur ivoire, bordure fine, hover vers bronze.
+            </p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Notre vocation</h3>
+                    <p>Comprendre le pourquoi profond de l'institut, sa vision de l'excellence et son engagement envers la rigueur pedagogique.</p>
+                </div>
+                <div class="card">
+                    <h3>Le concept</h3>
+                    <p>La structure pedagogique, le cadre methodologique et le positionnement qui fondent l'approche de La Cle.</p>
+                </div>
+                <div class="card">
+                    <h3>L'equipe</h3>
+                    <p>Les garants du cadre humain et pedagogique. Un collectif au service de la comprehension.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 06: SECTION BLOCK ==================== -->
+        <section class="section reveal">
+            <div class="section-label">06 &mdash; Bloc de section</div>
+            <p class="section-intro">
+                Composant structurant des pages de contenu. Texte + video atmospherique optionnelle. Respiration verticale maximale.
+            </p>
+
+            <div class="section-block">
+                <h2>L'humain comme horizon</h2>
+                <p>La comprehension des mecanismes humains n'est pas une fin en soi. Elle est un levier. Un point d'ancrage pour ceux qui veulent agir avec lucidite, construire avec justesse, et avancer avec profondeur.</p>
+                <p>L'institut La Cle existe pour offrir ce cadre. Structure, exigeant, et profondement humain.</p>
+                <div class="video-container">
+                    <span class="video-placeholder">Video atmospherique &mdash; muette &mdash; &le; 20s</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 07: SPLASH ==================== -->
+        <section class="section reveal">
+            <div class="section-label">07 &mdash; Splash Screen</div>
+            <p class="section-intro">
+                Animation d'entree symbolique. SVG anime par trace progressif. 1,8 secondes. Non skippable. Session unique via sessionStorage.
+            </p>
+
+            <div class="splash-preview" id="splashPreview">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 6 C32 6 22 6 22 18 C22 25 27 27 27 34 L27 42 L37 42 L37 34 C37 27 42 25 42 18 C42 6 32 6 32 6 Z M25 44 L39 44 L39 48 L25 48 Z M27 50 L37 50 L37 52.5 L27 52.5 Z M29 54.5 L35 54.5 L35 56.5 L29 56.5 Z" />
+                </svg>
+                <span class="splash-baseline">Comprendre avant d'agir</span>
+                <span class="splash-hint">Cliquer pour rejouer</span>
+            </div>
+        </section>
+
+        <!-- ==================== 08: ANIMATIONS ==================== -->
+        <section class="section reveal">
+            <div class="section-label">08 &mdash; Animations</div>
+            <p class="section-intro">
+                Minimales, lentes, signifiantes. Declenchees au scroll via IntersectionObserver. Pas de bounce, pas de spring.
+            </p>
+
+            <div class="spec-grid">
+                <div class="spec-row">
+                    <span class="spec-label">Fade in up (reveal)</span>
+                    <span class="spec-value">800ms &middot; ease-out &middot; translateY(20px)</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Fade in (simple)</span>
+                    <span class="spec-value">600ms &middot; ease-out</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Stagger entre elements</span>
+                    <span class="spec-value">+100ms delay</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Hover (boutons, cartes)</span>
+                    <span class="spec-value">400ms &middot; ease</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Transition de page</span>
+                    <span class="spec-value">300ms &middot; fade</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Splash (trace SVG + baseline)</span>
+                    <span class="spec-value">1800ms total</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 09: GRID ==================== -->
+        <section class="section reveal">
+            <div class="section-label">09 &mdash; Grille &amp; Breakpoints</div>
+
+            <div class="spec-grid">
+                <div class="spec-row">
+                    <span class="spec-label">Max width contenu</span>
+                    <span class="spec-value">1200px</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Colonnes</span>
+                    <span class="spec-value">12</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Gouttiere</span>
+                    <span class="spec-value">24px mobile &middot; 32px desktop</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label" style="color: var(--color-bronze);">sm</span>
+                    <span class="spec-value">640px &middot; marge 24px</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label" style="color: var(--color-bronze);">md</span>
+                    <span class="spec-value">768px &middot; marge 48px</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label" style="color: var(--color-bronze);">lg</span>
+                    <span class="spec-value">1024px &middot; marge 80px</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label" style="color: var(--color-bronze);">xl</span>
+                    <span class="spec-value">1440px &middot; marge auto</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 10: COMPOSITION ==================== -->
+        <section class="section reveal">
+            <div class="section-label">10 &mdash; Composition &mdash; Accueil (post-splash)</div>
+            <p class="section-intro">
+                Apercu de la composition de la page d'accueil. Trois boutons de meme hierarchie. Aucun menu. Aucun lien secondaire. Logo cliquable en haut a gauche.
+            </p>
+
+            <div class="composition-home">
+                <div style="font-family: var(--font-heading); font-size: var(--text-caption); font-weight: var(--weight-regular); letter-spacing: 0.15em; color: var(--color-graphite-light); margin-bottom: var(--space-11); align-self: flex-start;">
+                    La Cle
+                </div>
+                <h2>La Cle</h2>
+                <p class="subtitle">Institut de comprehension des mecanismes humains</p>
+                <div class="home-actions">
+                    <button class="btn">Nous decouvrir</button>
+                    <button class="btn">Catalogue des formations</button>
+                    <button class="btn">Espace apprenant</button>
+                </div>
+                <div style="margin-top: auto; padding-top: var(--space-11); display: flex; gap: var(--space-7); font-size: var(--text-caption); color: var(--color-graphite-light);">
+                    <span>Mentions legales</span>
+                    <span>CGV</span>
+                    <span>Contact</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="footer">
+            <p>Institut La Cle &mdash; Design System v1.0 &mdash; Document de reference interne</p>
+        </footer>
+    </div>
+
+    <script>
+        // Splash replay
+        const splash = document.getElementById('splashPreview');
+        splash.addEventListener('click', () => {
+            splash.classList.remove('playing');
+            void splash.offsetWidth;
+            splash.classList.add('playing');
+        });
+        setTimeout(() => splash.classList.add('playing'), 600);
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
