@@ -1,8 +1,8 @@
 'use client';
 
-import { SectionBlock } from '@/components/ui/SectionBlock';
-import { Button } from '@/components/ui/Button';
-import { EXTERNAL } from '@/lib/constants';
+import { SectionBlock } from '../ui/SectionBlock';
+import { Button } from '../ui/Button';
+import { EXTERNAL } from '../../lib/constants';
 
 const modules = [
   { number: 1, title: 'Les fondements de la PNL', description: 'Origines, principes fondateurs et cadre épistémologique.' },

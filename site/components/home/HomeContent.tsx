@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { Logo } from '@/components/layout/Logo';
-import { SITE, ROUTES, EXTERNAL } from '@/lib/constants';
-import { easing } from '@/design-system/animations';
+import { Button } from '../ui/Button';
+import { Logo } from '../layout/Logo';
+import { SITE, ROUTES, EXTERNAL } from '../../lib/constants';
+import { easing } from '../../design-system/animations';
 
 const containerVariants = {
   hidden: {},

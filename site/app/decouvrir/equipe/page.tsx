@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { EquipeContent } from '@/components/decouvrir/EquipeContent';
+import { PageContainer } from '../../../components/ui/PageContainer';
+import { EquipeContent } from '../../../components/decouvrir/EquipeContent';
 
 export const metadata: Metadata = {
   title: 'L\'équipe',

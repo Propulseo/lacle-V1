@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { CatalogueContent } from '@/components/formations/CatalogueContent';
+import { PageContainer } from '../../components/ui/PageContainer';
+import { CatalogueContent } from '../../components/formations/CatalogueContent';
 
 export const metadata: Metadata = {
   title: 'Catalogue des formations',

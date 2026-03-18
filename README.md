@@ -31,6 +31,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
+L’app Next.js à déployer se trouve dans le dossier **`site/`**. Dans Vercel :
+
+1. **Settings** → **General** → **Root Directory** : définir **`site`** (ou cliquer **Edit** puis saisir `site`).
+2. Enregistrer puis relancer un déploiement.
+
+Sans cela, le build à la racine échoue (alias `@/` et structure différente).
+
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

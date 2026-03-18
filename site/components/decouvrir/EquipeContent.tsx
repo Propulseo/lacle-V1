@@ -1,10 +1,10 @@
 'use client';
 
-import { SectionBlock } from '@/components/ui/SectionBlock';
-import { VideoAtmosphere } from '@/components/ui/VideoAtmosphere';
-import { Expandable } from '@/components/ui/Expandable';
-import { Button } from '@/components/ui/Button';
-import { ROUTES } from '@/lib/constants';
+import { SectionBlock } from '../ui/SectionBlock';
+import { VideoAtmosphere } from '../ui/VideoAtmosphere';
+import { Expandable } from '../ui/Expandable';
+import { Button } from '../ui/Button';
+import { ROUTES } from '../../lib/constants';
 
 export function EquipeContent() {
   return (

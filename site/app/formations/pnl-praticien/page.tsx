@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { PnlPraticienContent } from '@/components/formations/PnlPraticienContent';
+import { PageContainer } from '../../../components/ui/PageContainer';
+import { PnlPraticienContent } from '../../../components/formations/PnlPraticienContent';
 
 export const metadata: Metadata = {
   title: 'PNL Praticien',

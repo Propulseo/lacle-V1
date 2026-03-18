@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
+import { PageContainer } from '../../components/ui/PageContainer';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',

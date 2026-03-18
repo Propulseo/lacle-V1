@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { HubContent } from '@/components/decouvrir/HubContent';
+import { PageContainer } from '../../components/ui/PageContainer';
+import { HubContent } from '../../components/decouvrir/HubContent';
 
 export const metadata: Metadata = {
   title: 'Nous découvrir',

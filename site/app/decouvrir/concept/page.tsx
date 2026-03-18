@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { ConceptContent } from '@/components/decouvrir/ConceptContent';
+import { PageContainer } from '../../../components/ui/PageContainer';
+import { ConceptContent } from '../../../components/decouvrir/ConceptContent';
 
 export const metadata: Metadata = {
   title: 'Le concept',

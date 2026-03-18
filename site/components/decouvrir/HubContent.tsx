@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card } from '@/components/ui/Card';
-import { ROUTES } from '@/lib/constants';
-import { easing } from '@/design-system/animations';
+import { Card } from '../ui/Card';
+import { ROUTES } from '../../lib/constants';
+import { easing } from '../../design-system/animations';
 
 const containerVariants = {
   hidden: {},

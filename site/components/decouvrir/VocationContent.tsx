@@ -1,9 +1,9 @@
 'use client';
 
-import { SectionBlock } from '@/components/ui/SectionBlock';
-import { VideoAtmosphere } from '@/components/ui/VideoAtmosphere';
-import { Button } from '@/components/ui/Button';
-import { ROUTES } from '@/lib/constants';
+import { SectionBlock } from '../ui/SectionBlock';
+import { VideoAtmosphere } from '../ui/VideoAtmosphere';
+import { Button } from '../ui/Button';
+import { ROUTES } from '../../lib/constants';
 
 export function VocationContent() {
   return (

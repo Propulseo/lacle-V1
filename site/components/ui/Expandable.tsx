@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { duration, easing } from '@/design-system/animations';
+import { duration, easing } from '../../design-system/animations';
 
 type ExpandableProps = {
   trigger: string;

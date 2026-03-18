@@ -1,4 +1,4 @@
-import { Logo } from '@/components/layout/Logo';
+import { Logo } from '../layout/Logo';
 
 type PageContainerProps = {
   children: React.ReactNode;

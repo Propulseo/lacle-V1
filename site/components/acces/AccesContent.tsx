@@ -1,8 +1,8 @@
 'use client';
 
-import { SectionBlock } from '@/components/ui/SectionBlock';
-import { Button } from '@/components/ui/Button';
-import { EXTERNAL } from '@/lib/constants';
+import { SectionBlock } from '../ui/SectionBlock';
+import { Button } from '../ui/Button';
+import { EXTERNAL } from '../../lib/constants';
 
 export function AccesContent() {
   return (

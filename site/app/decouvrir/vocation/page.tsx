@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { VocationContent } from '@/components/decouvrir/VocationContent';
+import { PageContainer } from '../../../components/ui/PageContainer';
+import { VocationContent } from '../../../components/decouvrir/VocationContent';
 
 export const metadata: Metadata = {
   title: 'Notre vocation',

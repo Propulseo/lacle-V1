@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { fadeInUp } from '@/design-system/animations';
+import { fadeInUp } from '../../design-system/animations';
 
 type SectionBlockProps = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { PageContainer } from '@/components/ui/PageContainer';
-import { AccesContent } from '@/components/acces/AccesContent';
+import { PageContainer } from '../../components/ui/PageContainer';
+import { AccesContent } from '../../components/acces/AccesContent';
 
 export const metadata: Metadata = {
   title: 'Accès à l\'espace apprenant',
