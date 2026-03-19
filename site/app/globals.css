@@ -105,7 +105,25 @@ body {
   font-size: var(--text-body);
   line-height: var(--leading-body);
   color: var(--color-noir);
+  /* Fond bleu (visible autour du contenu) */
+  background-color: #0C1020;
+  padding: 14px;
+}
+
+main {
+  min-height: calc(100vh - 28px);
   background-color: var(--color-ivory);
+  border: 1px solid rgba(224, 220, 212, 0.35);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  main {
+    min-height: calc(100vh - 20px);
+  }
 }
 
 /* Focus styles for accessibility */
